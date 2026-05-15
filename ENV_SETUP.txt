@@ -1,0 +1,40 @@
+==========================================
+  L MART .env.local — COPY THIS EXACTLY
+==========================================
+
+MONGODB_URI=mongodb+srv://lmartagl:LMART2026@cluster0.hlquwyl.mongodb.net/?appName=Cluster0
+JWT_SECRET=lmartSuperSecret2024
+NEXT_PUBLIC_WHATSAPP_NUMBER=917732020869
+CLOUDINARY_CLOUD_NAME=dxk9dxe4m
+CLOUDINARY_API_KEY=191311859243335
+CLOUDINARY_API_SECRET=oRhrYBA3agUEQ3jx2xkOETZfzik
+EMAIL_USER=supportlmart@gmail.com
+EMAIL_PASS=hexycrwbftustnst
+FAST2SMS_API_KEY=Od7mWbIfZLoEjJBTCHQVkF7wCmk3J5mpE8tznmGK5bHQU8DHUIx42KnZ8uX0
+RAZORPAY_KEY_ID=your_razorpay_key
+RAZORPAY_KEY_SECRET=your_razorpay_secret
+
+==========================================
+COMMANDS TO RUN (in order):
+==========================================
+1. npm install
+2. node seed.js          ← Creates admin account
+3. node seed_products.js ← Adds all 986 products
+4. npm run dev           ← Start website
+
+Admin login:
+  Email    : supportlmart@gmail.com
+  Password : LMART2026
+  URL      : http://localhost:3000/login
+
+==========================================
+IF EMAIL OTP FAILS — FIX IN 2 MINUTES:
+==========================================
+1. Go to: https://myaccount.google.com/security
+2. Make sure 2-Step Verification is ON
+3. Go to: https://myaccount.google.com/apppasswords
+4. Click "Create" → Name: lmart → Copy 16-letter password
+5. Replace EMAIL_PASS= with new password (no spaces)
+6. Restart: npm run dev
+
+==========================================

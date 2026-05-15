@@ -1,0 +1,54 @@
+==========================================
+  L MART - OTP Email Setup (FREE)
+==========================================
+
+The Gmail OAuth error happens because EmailJS 
+needs a different email service setup.
+
+CORRECT SETUP IN 3 MINUTES:
+==========================================
+
+1. Go to https://www.emailjs.com → Sign Up FREE
+
+2. Add Email Service (IMPORTANT - use this method):
+   - Click "Email Services" → "Add New Service"
+   - Choose "Personal Email" (NOT Gmail OAuth)
+   - OR choose "Outlook/Hotmail" if you have one
+   - Fill SMTP details manually:
+     Host: smtp.gmail.com
+     Port: 587
+     Username: supportlmart@gmail.com
+     Password: hexycrwbftustnst (your app password)
+   - Click "Add Service" → Copy the Service ID
+
+3. Create Email Template:
+   - Click "Email Templates" → "Create New Template"
+   - Set these fields:
+     To email: {{to_email}}
+     Subject: L MART - Your OTP Code
+     Body (HTML or Text):
+     ---
+     Hi {{to_name}},
+     Your L MART OTP: {{otp_code}}
+     Valid for {{valid_time}}.
+     Do not share with anyone.
+     - L MART Team
+     ---
+   - Save → Copy Template ID
+
+4. Get Public Key:
+   - Click "Account" → "API Keys" → Copy Public Key
+
+5. Add to .env.local:
+   NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=xxxxxxxxxxxxxxxxxxxx
+   NEXT_PUBLIC_EMAILJS_SERVICE_ID=service_xxxxxxx
+   NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=template_xxxxxxx
+
+6. Restart: npm run dev
+
+==========================================
+Admin Login:
+  Email:    supportlmart@gmail.com
+  Password: LMART2026
+  Run first: node seed.js
+==========================================
