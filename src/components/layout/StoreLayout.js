@@ -48,15 +48,55 @@ export default function StoreLayout({ children }) {
   return (
     <div style={{ minHeight:'100vh', display:'flex', flexDirection:'column', background:'#F8F4F9' }}>
 
-      {/* ── Top Ticker ── */}
-      <div style={{ background: PD, padding:'6px 16px', textAlign:'center', fontSize:12, color: G, fontWeight:500, letterSpacing:0.3 }}>
-        🚚 30-Minute Delivery &nbsp;•&nbsp; ✅ 100% Trusted Products &nbsp;•&nbsp; 📞 +91 94931 63557
-        &nbsp;•&nbsp;
-        <a href="https://wa.me/919493163557" target="_blank" rel="noopener noreferrer"
-          style={{ color:'#4ade80', fontWeight:700, textDecoration:'none' }}>
-          💬 WhatsApp Us
-        </a>
-      </div>
+     {/* ── Top Scrolling Ticker ── */}
+<div
+  style={{
+    background: PD,
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    padding: '6px 0',
+    color: G,
+    fontSize: 12,
+    fontWeight: 500,
+    letterSpacing: 0.3,
+  }}
+>
+  <div
+    style={{
+      display: 'inline-block',
+      paddingLeft: '100%',
+      animation: 'scrollTicker 15s linear infinite',
+    }}
+  >
+    🚚 30-Minute Delivery &nbsp;•&nbsp; ✅ 100% Trusted Products
+    &nbsp;•&nbsp; 📞 +91 94931 63557 &nbsp;•&nbsp;
+
+    <a
+      href="https://wa.me/919493163557"
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        color: '#4ade80',
+        fontWeight: 700,
+        textDecoration: 'none',
+      }}
+    >
+      💬 WhatsApp Us
+    </a>
+  </div>
+
+  <style jsx>{`
+    @keyframes scrollTicker {
+      0% {
+        transform: translateX(0%);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  `}</style>
+</div>
 
       {/* ── Main Header ── */}
       <header style={{
