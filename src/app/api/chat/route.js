@@ -13,7 +13,7 @@ Store Info:
 - Location: Agadalalanka, Eluru District, AP - 534427
 - Phone / WhatsApp: +91 94931 63557
 - Email: supportlmart@gmail.com
-- Delivery: 3-5 business days | Free delivery above ₹999
+- Delivery: 3-5 business days | Free delivery on all orders
 - Payment: Cash on Delivery (COD) only
 - Returns: 10-day hassle-free return policy
 - Order statuses: Placed → Confirmed → Packed → Shipped → Delivered
