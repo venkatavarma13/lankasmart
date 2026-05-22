@@ -1,0 +1,128 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap');
+
+:root {
+  --plum:       #4E2A4F;
+  --plum-dark:  #2D1E2F;
+  --plum-mid:   #6B3D6C;
+  --plum-pale:  #f0e8f1;
+  --gold:       #D4AF6A;
+  --gold-dark:  #B8942E;
+  --page-bg:    #F8F4F9;
+  --card-bg:    #FFFFFF;
+  --text-main:  #1a0f1b;
+  --text-muted: #7c5e7d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--page-bg);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Plum colour utility classes (keep all old names working) ── */
+.text-em-blue               { color: var(--plum); }
+.bg-em-blue                 { background: var(--plum); }
+.bg-em-blue-dark            { background: var(--plum-dark); }
+.hover\:bg-em-blue-dark:hover { background: var(--plum-dark); }
+.border-em-blue             { border-color: var(--plum); }
+.focus\:border-em-blue:focus  { border-color: var(--plum); outline: none; }
+.bg-em-orange               { background: var(--gold); }
+.hover\:bg-orange-600:hover   { background: var(--gold-dark); }
+.text-em-orange             { color: var(--gold); }
+.accent-em-blue             { accent-color: var(--plum); }
+.bg-em-blue\/10             { background: rgba(78,42,79,0.10); }
+.fill-orange-400            { fill: var(--gold); }
+.fill-red-500               { fill: #ef4444; }
+.bg-lm-green                { background: var(--plum-dark); }
+.text-lm-green              { color: var(--plum); }
+
+/* ── Cards ── */
+.shadow-card {
+  box-shadow: 0 2px 12px rgba(45,30,47,0.08), 0 1px 3px rgba(45,30,47,0.05);
+  border: 1px solid rgba(78,42,79,0.07);
+  border-radius: 12px;
+}
+.shadow-card:hover {
+  box-shadow: 0 8px 28px rgba(45,30,47,0.13), 0 2px 6px rgba(45,30,47,0.08);
+  transform: translateY(-2px);
+  transition: all 0.22s ease;
+}
+
+/* ── Skeleton ── */
+.skeleton {
+  background: linear-gradient(90deg, #ede0ee 25%, #dbc9dc 50%, #ede0ee 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+@keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+/* ── Footer text helpers ── */
+.text-green-200  { color: rgba(255,255,255,0.78); }
+.text-green-300  { color: rgba(255,255,255,0.55); }
+.border-green-800{ border-color: rgba(255,255,255,0.12); }
+.hover\:text-white:hover { color: white; }
+.bg-white\/10    { background: rgba(255,255,255,0.10); }
+.hover\:bg-white\/20:hover { background: rgba(255,255,255,0.20); }
+.hover\:bg-blue-600:hover  { background: #2563eb; }
+.hover\:bg-pink-600:hover  { background: #db2777; }
+.hover\:bg-red-600:hover   { background: #dc2626; }
+.hover\:bg-green-500:hover { background: #22c55e; }
+.text-blue-100   { color: rgba(255,255,255,0.85); }
+.text-yellow-300 { color: var(--gold); }
+
+/* ── Plum gradient button ── */
+.btn-plum {
+  background: linear-gradient(135deg, var(--plum) 0%, var(--plum-dark) 100%);
+  color: white; border: none; cursor: pointer; font-weight: 600;
+  border-radius: 10px; padding: 11px 24px; font-size: 14px;
+  box-shadow: 0 4px 14px rgba(45,30,47,0.25);
+  transition: all 0.2s ease;
+}
+.btn-plum:hover {
+  box-shadow: 0 6px 20px rgba(45,30,47,0.35);
+  transform: translateY(-1px);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  color: var(--plum-dark); border: none; cursor: pointer; font-weight: 700;
+  border-radius: 10px; padding: 11px 24px; font-size: 14px;
+  box-shadow: 0 4px 14px rgba(212,175,106,0.30);
+  transition: all 0.2s ease;
+}
+.btn-gold:hover {
+  box-shadow: 0 6px 20px rgba(212,175,106,0.45);
+  transform: translateY(-1px);
+}
+
+/* ── Input focus ── */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--plum) !important;
+  box-shadow: 0 0 0 3px rgba(78,42,79,0.12);
+}
+
+/* ── Smooth page transitions ── */
+main { animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+
+/* ── Mobile touch targets ── */
+@media (max-width: 640px) {
+  button, a { min-height: 40px; }
+  .shadow-card { border-radius: 10px; }
+}
+
+/* ── 3D card lift on hover ── */
+.card-3d {
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  transform-style: preserve-3d;
+}
+.card-3d:hover {
+  transform: perspective(600px) rotateX(2deg) translateY(-4px);
+  box-shadow: 0 16px 40px rgba(45,30,47,0.18);
+}
