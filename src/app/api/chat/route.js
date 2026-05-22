@@ -167,7 +167,7 @@ export async function POST(request) {
 
 function getFallbackReply(userMessage) {
   const msg = userMessage.toLowerCase();
-  if (msg.includes('deliver') || msg.includes('shipping')) return '🚚 Delivery takes 3-5 business days. Free delivery on orders above ₹999!';
+  if (msg.includes('deliver') || msg.includes('shipping')) return '🚚 Delivery takes 3-5 business days. Free delivery on all orders!';
   if (msg.includes('return') || msg.includes('refund')) return '↩️ We offer 10-day hassle-free returns! Contact us on WhatsApp for quick processing.';
   if (msg.includes('payment') || msg.includes('cod') || msg.includes('pay')) return '💵 We accept Cash on Delivery (COD). Pay when your order arrives!';
   if (msg.includes('track') || msg.includes('order status')) return '📦 Go to My Orders page after logging in to track your order status.';
