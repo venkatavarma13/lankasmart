@@ -69,20 +69,57 @@ export default function HomePage() {
         {/* Banner */}
         <BannerCarousel />
 
-        {/* Trust badges */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {TRUST_BADGES.map(({ icon: Icon, title, sub }) => (
-            <div key={title} className="bg-white rounded shadow-card flex items-center gap-3 px-4 py-3">
-              <div className="bg-em-blue/10 rounded-full p-2 flex-shrink-0">
-                <Icon className="text-em-blue" size={18} />
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-gray-800">{title}</p>
-                <p className="text-xs text-gray-500">{sub}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+       {/* Premium Trust Badges */}
+<div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+  {TRUST_BADGES.map(({ icon: Icon, title, sub }) => (
+    <div
+      key={title}
+      className="
+        bg-white/90
+        backdrop-blur-md
+        rounded-2xl
+        border border-white/30
+        shadow-xl
+        hover:shadow-2xl
+        hover:-translate-y-1
+        transition-all
+        duration-300
+        px-5
+        py-5
+        flex
+        flex-col
+        items-center
+        text-center
+      "
+    >
+      <div
+        className="
+          w-14
+          h-14
+          rounded-2xl
+          bg-gradient-to-br
+          from-purple-700
+          to-indigo-600
+          flex
+          items-center
+          justify-center
+          shadow-lg
+          mb-3
+        "
+      >
+        <Icon className="text-white" size={24} />
+      </div>
+
+      <p className="text-sm md:text-base font-bold text-gray-800 leading-snug">
+        {title}
+      </p>
+
+      <p className="text-xs text-gray-500 mt-1 leading-relaxed">
+        {sub}
+      </p>
+    </div>
+  ))}
+</div>
 
         {/* Categories */}
         <section className="bg-white rounded shadow-card p-4">
