@@ -20,7 +20,7 @@ const UNITS = [
   { value: 'cm', label: 'cm (Centimetre)' },
   { value: 'pack', label: 'Pack' },
 ];
-const EMPTY = { name:'', brand:'', category:'Pachari / Grocery Items', price:'', mrp:'', description:'', stock:'', unit:'piece', variants:[], featured:false, trending:false, images:[], specifications:[] };
+const EMPTY = { name:'', brand:'', category:'Pachari / Grocery Items', price:'', mrp:'', description:'', stock:'', unit:'piece', variants:[], featured:false, trending:false, images:[], specifications:[], barcode:'' };
 const EMPTY_VARIANT = { label:'', value:'', price:'', mrp:'', stock:'' };
 
 export default function AdminProducts() {
@@ -337,6 +337,45 @@ export default function AdminProducts() {
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <label className="text-xs font-semibold text-gray-600">Specifications</label>
+                  {/* Barcode */}
+              <div style={{ border:'2px solid #e5e7eb', borderRadius:12, padding:16 }}>
+                <label style={{ display:'block', fontSize:12, fontWeight:700, color:'#374151', marginBottom:8 }}>
+                  🔲 Product Barcode / SKU
+                </label>
+                <div style={{ display:'flex', gap:8 }}>
+                  <input
+                    value={form.barcode}
+                    onChange={e => setForm(f => ({...f, barcode: e.target.value}))}
+                    placeholder="Scan or type barcode number (e.g. 8901030874321)"
+                    style={{
+                      flex:1, border:'1.5px solid #d1d5db', borderRadius:8,
+                      padding:'10px 14px', fontSize:14, outline:'none',
+                      fontFamily:'monospace', letterSpacing:1,
+                    }}
+                    onFocus={e => e.target.style.borderColor='#1a5c2a'}
+                    onBlur={e => e.target.style.borderColor='#d1d5db'}
+                  />
+                  {form.barcode && (
+                    <button
+                      onClick={() => setForm(f => ({...f, barcode:''}))}
+                      style={{ padding:'0 12px', background:'#fee2e2', color:'#dc2626', border:'none', borderRadius:8, cursor:'pointer', fontWeight:700, fontSize:13 }}>
+                      ✕ Clear
+                    </button>
+                  )}
+                </div>
+                {form.barcode && (
+                  <div style={{ marginTop:10, padding:'8px 12px', background:'#f0fdf4', borderRadius:8, border:'1px solid #bbf7d0', display:'flex', alignItems:'center', gap:8 }}>
+                    <span style={{ fontSize:20 }}>✅</span>
+                    <div>
+                      <span style={{ fontSize:11, color:'#15803d', fontWeight:700 }}>Barcode saved: </span>
+                      <span style={{ fontSize:13, fontFamily:'monospace', fontWeight:700, color:'#14532d', letterSpacing:1 }}>{form.barcode}</span>
+                    </div>
+                  </div>
+                )}
+                <p style={{ fontSize:11, color:'#9ca3af', marginTop:8 }}>
+                  💡 Tip: Use a USB barcode scanner — click this box, then scan the product. Or type the number manually.
+                </p>
+              </div>
                   <button onClick={() => setForm(f => ({...f, specifications: [...f.specifications, {key:'',value:''}]}))} className="text-xs text-em-blue hover:underline">+ Add Row</button>
                 </div>
                 {form.specifications.map((spec,i) => (

@@ -35,6 +35,7 @@ const productSchema = new mongoose.Schema({
   featured: { type: Boolean, default: false },
   trending: { type: Boolean, default: false },
   isActive: { type: Boolean, default: true },
+  barcode: { type: String, default: '' },
 }, { timestamps: true });
 
 export default mongoose.models.Product || mongoose.model('Product', productSchema);
